@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:false}))
 // examples of endpoints: http://localhost:3000/, https://localhost:3000/login
 app.get("/",async(req,res)=>{
     try {
-        const html_path="./index.html"
+        const html_path="./views/index.html"
         fs.readFile(html_path,"utf8",(err,html)=>{
             if(err){
                 res.status(505).send({error:err})
@@ -26,7 +26,7 @@ app.get("/",async(req,res)=>{
 //http://localhost:3000/person method:get
 app.get("/person",async(req,res)=>{
     try {
-       const path="./person.html"  
+       const path="./views/person.html"  
        fs.readFile(path,"utf8",(err,html)=>{
         if(err){
             console.log(err)
