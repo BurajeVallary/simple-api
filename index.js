@@ -38,6 +38,21 @@ app.get("/person",async(req,res)=>{
     }
 })
 
+
+app.get("/data",async(req,res)=>{
+    try {
+       const path="./data.json"  
+       fs.readFile(path,"utf8",(err,json)=>{
+        if(err){
+            console.log(err)
+        }
+        res.send(json)
+       })
+    } catch (error) {
+        res.json({error:error.message})
+    }
+})
+
 //listening to port 3000
 const port=process.env.PORT||3000
 app.listen(port,()=>{
